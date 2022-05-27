@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    height: 60px;
+    border-bottom: 1px solid #f0eeee;
+}
+
+.header_logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-between;
+    width: 100px;  
+}
+
+.user_section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.username {
+    margin-top: 15px;
+    margin-left: 10px;
+} 
+
+.collapase_btn {
+    padding: 0;
+    margin: 0;
+    border:none;
+    background-color: white;
+    margin-top: 15px;
+
+    
+}

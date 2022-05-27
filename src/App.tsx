@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Layout } from 'antd';
+import React, { useState } from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
 import './App.css';
+import Header from './components/header/header';
+import Navigation from './components/navigation';
+import routes from './routes';
 
+const { Content } = Layout
 function App() {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <main>
+        <Header collapsed={collapsed} setCollapsed={setCollapsed} />
+        <div style={{ display: 'flex'  , marginTop : '30px'}}>
+          <Navigation collapsed={collapsed} setCollapsed={setCollapsed} />
+          <div className='routes'>
+            <Routes>
+              {routes.map((route, index) => {
+                return (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    element={<route.component />}
+                  />
+                )
+              })
+
+              }
+            </Routes>
+          </div>
+
+        </div>
+      </main>
+    </BrowserRouter>
+
+
   );
 }
 
