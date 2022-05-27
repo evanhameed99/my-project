@@ -1,27 +1,33 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../store';
-import { IProject, IGateway } from './interfaces/index';
-import { getProjects, getGateways } from './report.api';
+import { IProject, IGateway, IReportProp, reportResponse } from './interfaces/index';
+import { getProjects, getGateways, generateReport } from './report.api';
 
 export interface ReportState {
     projectId: string;
     gatewayId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     status: 'idle' | 'loading' | 'failed';
     projects: IProject[];
     gateways: IGateway[];
+    report: reportResponse
 }
 
 
 const initialState: ReportState = {
     projectId: '',
     gatewayId: '',
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: '',
+    endDate: '',
     status: 'idle',
     projects: [],
     gateways: [],
+    report: {
+        code: 0,
+        data: [],
+        error: null
+    }
 }
 
 
@@ -44,6 +50,16 @@ export const getGatewaysAsync = createAsyncThunk(
     }
 );
 
+export const generateReportAsync = createAsyncThunk(
+    'report/generateReport',
+    async (body: IReportProp) => {
+        const response = await generateReport(body);
+        console.log('the response of generateReport: ', response);
+        // The value we return becomes the `fulfilled` action payload
+        return response;
+    }
+);
+
 export const reportSlice = createSlice({
     name: 'report',
     initialState,
@@ -54,10 +70,10 @@ export const reportSlice = createSlice({
         setGatewayId: (state, action: PayloadAction<string>) => {
             state.gatewayId = action.payload;
         },
-        setStartDate: (state, action: PayloadAction<Date>) => {
+        setStartDate: (state, action: PayloadAction<string>) => {
             state.startDate = action.payload;
         },
-        setEndDate: (state, action: PayloadAction<Date>) => {
+        setEndDate: (state, action: PayloadAction<string>) => {
             state.endDate = action.payload;
         }
     }
@@ -84,6 +100,16 @@ export const reportSlice = createSlice({
             .addCase(getGatewaysAsync.rejected, (state) => {
                 state.status = 'failed';
             })
+            .addCase(generateReportAsync.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(generateReportAsync.fulfilled, (state, action) => {
+                state.status = 'idle';
+                state.report = action.payload;
+            })
+            .addCase(generateReportAsync.rejected, (state) => {
+                state.status = 'failed';
+            })
     },
 });
 
@@ -91,5 +117,11 @@ export const { setProjectId, setGatewayId, setStartDate, setEndDate } = reportSl
 
 export const selectProjects = (state: RootState) => state.report.projects;
 export const selectGateways = (state: RootState) => state.report.gateways;
+export const selectStartDate = (state: RootState) => state.report.startDate;
+export const selectEndDate = (state: RootState) => state.report.endDate;
+export const selectProjectId = (state: RootState) => state.report.projectId;
+export const selectGatewayId = (state: RootState) => state.report.gatewayId;
+
+
 export default reportSlice.reducer;
 

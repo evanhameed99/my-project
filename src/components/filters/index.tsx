@@ -1,23 +1,48 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch } from '../../state-manager/hooks'
-import { getProjectsAsync , getGatewaysAsync } from '../../state-manager/report/reportSlice'
-import DateFilter from './dateFilter'
+import { getProjectsAsync, getGatewaysAsync, generateReportAsync } from '../../state-manager/report/reportSlice'
+import DateFilter from './StartDate'
 import GatewayFilter from './gatewayFilter'
 import ProjectFilter from './projectFilter'
 import './styles.css'
+import EndDateFilter from './EndDate'
+import GenerateButton from './GenerateButton'
+import { Button, Form } from 'antd'
 const Filters = () => {
     const dispatch = useAppDispatch();
+
+    const { Item } = Form;
     useEffect(() => {
         dispatch(getProjectsAsync());
         dispatch(getGatewaysAsync());
     }, [])
 
+    const onFinish = (values: any) => {
+        values.from = values.from.format('YYYY-MM-DD');
+        values.to = values.to.format('YYYY-MM-DD');
+        console.log('Success:', values);
+
+        dispatch(generateReportAsync(values));
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+    };
+
+
     return (
-        <div className='filter'>
-            <ProjectFilter />
-            <GatewayFilter />
-            <DateFilter />
-        </div>
+        <Form
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+        >
+            <div className="filter">
+                <ProjectFilter />
+                <GatewayFilter />
+                <DateFilter />
+                <EndDateFilter />
+                <GenerateButton />
+            </div>
+        </Form>
     )
 }
 
