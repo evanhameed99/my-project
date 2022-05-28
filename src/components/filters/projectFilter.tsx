@@ -2,7 +2,7 @@ import { Form, Select } from 'antd'
 import React from 'react'
 import { selectProjects, setProjectId } from '../../state-manager/report/reportSlice'
 import { useAppSelector, useAppDispatch } from '../../state-manager/hooks';
-
+import '../../styles/homepage.css'
 
 const ProjectFilter = () => {
 
@@ -20,7 +20,7 @@ const ProjectFilter = () => {
     return (
         <div>
             <Item rules={[{ required: true}]} name='projectId'>
-                <Select placeholder='Select Project' style={{ width: 160 }} onChange={onFilterChange}>
+                <Select placeholder='Select Project' style={{ width: 160 }} onChange={onFilterChange}  className='my-select'>
                     <Option value='  '>All Projects</Option>
                     {
                         projects &&

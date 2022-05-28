@@ -4,6 +4,7 @@ import useCollapse from 'react-collapsed';
 import '../styles/homepage.css'
 import ListItem from '../components/menuList/ListItem';
 import List from '../components/menuList/List';
+import Main from '../components/main/Main';
 const homepage: React.FunctionComponent<{}> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
@@ -17,7 +18,7 @@ const homepage: React.FunctionComponent<{}> = () => {
         <Filters />
       </div>
 
-      <List />
+      <Main />
 
     </div>
   )

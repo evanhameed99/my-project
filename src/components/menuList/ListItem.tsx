@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import '../../styles/homepage.css'
 import useCollapse from 'react-collapsed';
-import { selectGateways, setGatewayId, selectGatewayId, selectProjectId, selectProjects, selectReport } from '../../state-manager/report/reportSlice'
-import { useAppSelector, useAppDispatch } from '../../state-manager/hooks';
 
 interface IListItemProp {
     projectName: string;
@@ -11,8 +9,7 @@ interface IListItemProp {
 }
 const ListItem: React.FC<IListItemProp> = ({ projectName, totalAmount, data }) => {
 
-    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
-    const report = useAppSelector(selectReport);
+    const { getCollapseProps, getToggleProps } = useCollapse();
     return (
         <div className="collapsible">
             <div className="header" {...getToggleProps()}>

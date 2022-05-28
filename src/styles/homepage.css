@@ -62,3 +62,26 @@
  .tableRow:nth-child(odd) {
     background-color: #ffffff;
   }
+
+  .noreport {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top : 25%
+  }
+
+  .noreport > p {
+      width: 30%;
+  }
+
+  .generateBtn {
+      background-color: #005B96 !important;
+      color: #ffffff !important;
+      border-radius: 5px !important;
+  }
+
+ .my-select {
+      background: #1BC5BD !important;
+  }

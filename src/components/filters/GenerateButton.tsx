@@ -8,7 +8,7 @@ const GenerateButton = () => {
     return (
 
         <Item >
-            <Button htmlType='submit'>Generate report</Button>
+            <Button htmlType='submit' className='generateBtn'>Generate report</Button>
         </Item>
     )
 }
