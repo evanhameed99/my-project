@@ -16,7 +16,7 @@ export interface ReportState {
 
 
 const initialState: ReportState = {
-    projectId: '',
+    projectId: '  ',
     gatewayId: '',
     startDate: '',
     endDate: '',
@@ -121,6 +121,7 @@ export const selectStartDate = (state: RootState) => state.report.startDate;
 export const selectEndDate = (state: RootState) => state.report.endDate;
 export const selectProjectId = (state: RootState) => state.report.projectId;
 export const selectGatewayId = (state: RootState) => state.report.gatewayId;
+export const selectReport = (state: RootState) => state.report.report;
 
 
 export default reportSlice.reducer;

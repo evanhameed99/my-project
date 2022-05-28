@@ -5,3 +5,60 @@
     width: 100%;
    
 }
+
+.collapsible .content {
+    margin-top: 10px;
+    /* padding: 6px; */
+    background-color: #eeeeee;
+}
+.collapsible .header {
+    background-color: #ffffff;
+    /* padding: 6px; */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.listWrapper {
+
+    margin-top: 20px;
+    padding : 20px;
+    background-color: #F1FAFE;
+} 
+
+.table {
+    /* border-collapse: collapse; */
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.tableData, .tableHeader {
+    /* border: 1px solid #dddddd; */
+    text-align: center;
+    padding: 8px;
+    /* background-color: #ffffff; */
+  }
+
+  .tableRow {
+      padding: 10px;
+  }
+
+    .tableHeader {
+        background-color: #ffffff;
+        font-weight: 700;
+    }
+  
+ .tableRow:nth-child(even) {
+    background-color: #F1FAFE;
+  }
+ .tableRow:nth-child(odd) {
+    background-color: #ffffff;
+  }
