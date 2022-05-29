@@ -27,8 +27,8 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem('Reports', 'counterpage', <PieChartOutlined />),
-    getItem('Users', 'notfound', <DesktopOutlined />),
+    getItem('Reports', 'report', <PieChartOutlined />),
+    getItem('Users', 'users', <DesktopOutlined />),
 ];
 
 
@@ -44,13 +44,15 @@ const Navigation: React.FC<NavigationProps> = ({ collapsed }) => {
     return (
         <div >
             <Menu
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={['users']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"
                 theme="light"
                 inlineCollapsed={collapsed}
                 items={items}
-                onClick={({ key, keyPath, }) => navigate(`/${key}`)}
+                onClick={({ key, keyPath, }) => {
+                    navigate(`/${key}`)
+                }}
             />
         </div>
     );

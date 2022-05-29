@@ -1,6 +1,6 @@
 import NotFound from "../pages/404";
-import counterpage from "../pages/counterpage";
 import homepage from "../pages/homepage";
+import users from "../pages/users";
 import { IRoute } from "./interfaces/index";
 
 
@@ -8,14 +8,21 @@ const routes: IRoute[] = [
     {
         path: "/",
         name: "Home",
-        component: homepage,
+        component: users,
         exact: true,
     },
-    // {
-    //     path: "/counterpage",
-    //     name: "About",
-    //     component: counterpage,
-    // },
+    {
+        path: "/users",
+        name: "Users",
+        component: users,
+        exact: true,
+    },
+    {
+        path: "/report",
+        exact: true,
+        name: "Report",
+        component: homepage,
+    },
     {
         path: '/notfound',
         name: 'NotFound',

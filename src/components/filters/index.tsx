@@ -20,13 +20,11 @@ const Filters = () => {
     const onFinish = (values: any) => {
         values.from = values.from.format('YYYY-MM-DD');
         values.to = values.to.format('YYYY-MM-DD');
-        console.log('Success:', values);
 
         dispatch(generateReportAsync(values));
     };
 
     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
     };
 
 

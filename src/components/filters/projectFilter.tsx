@@ -20,7 +20,7 @@ const ProjectFilter = () => {
     return (
         <div>
             <Item rules={[{ required: true}]} name='projectId'>
-                <Select placeholder='Select Project' style={{ width: 160 }} onChange={onFilterChange}  className='my-select'>
+                <Select placeholder='Select Project' style={{ width: 160 }} onChange={onFilterChange}  >
                     <Option value='  '>All Projects</Option>
                     {
                         projects &&

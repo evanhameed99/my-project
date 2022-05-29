@@ -77,10 +77,14 @@
       width: 30%;
   }
 
+
+/* overrifin ant classes  */
+
   .generateBtn {
       background-color: #005B96 !important;
       color: #ffffff !important;
       border-radius: 5px !important;
+      font-weight: 600 !important;
   }
 
  .my-select {
@@ -104,6 +108,39 @@
 
 }
 
+.ant-select-selector {
+    color: #ffffff !important;
+    background-color: #1BC5BD !important;
+    border : none !important;
+    border-radius: 5px !important;
+}
+.ant-select {
+    color: #ffffff !important;
+}
+.ant-select-selection-placeholder  {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+.ant-select-arrow{
+    color: #ffffff !important;
+}
+
+.ant-picker {
+    color: #ffffff !important;
+    background-color: #1BC5BD !important;
+    border : none !important;
+    border-radius: 5px !important;
+    padding: 5px !important;
+}
+
+.ant-picker-input > input{
+    color : #ffffff !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff !important;
+    opacity: 1; /* Firefox */
+    font-weight: 600 !important;
+  }
 .graphDiv {
     background-color: #F1FAFE;
     width: 100%;
@@ -112,3 +149,5 @@
     display: flex;
     padding: 10px
 };
+
+

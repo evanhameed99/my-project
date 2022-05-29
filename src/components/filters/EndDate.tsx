@@ -10,7 +10,6 @@ const EndDateFilter: React.FC = () => {
     const { Item } = Form;
 
     const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-        console.log(date, dateString);
         dispatch(setEndDate(dateString));
     };
 

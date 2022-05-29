@@ -35,7 +35,6 @@ export const getProjectsAsync = createAsyncThunk(
     'report/getProjects',
     async () => {
         const response = await getProjects();
-        console.log('the response is: ', response);
         // The value we return becomes the `fulfilled` action payload
         return response.data;
     }
@@ -44,7 +43,6 @@ export const getGatewaysAsync = createAsyncThunk(
     'report/getGateways',
     async () => {
         const response = await getGateways();
-        console.log('the response of gateways: ', response);
         // The value we return becomes the `fulfilled` action payload
         return response.data;
     }
@@ -54,7 +52,6 @@ export const generateReportAsync = createAsyncThunk(
     'report/generateReport',
     async (body: IReportProp) => {
         const response = await generateReport(body);
-        console.log('the response of generateReport: ', response);
         // The value we return becomes the `fulfilled` action payload
         return response;
     }

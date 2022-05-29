@@ -16,9 +16,7 @@ const List: React.FC<IListProp> = ({ menus }) => {
         <div className='listWrapper'>
 
             {menus && menus.map((menu: any) => {
-                console.log('menu' , menu)
                 const name = menu.projectName && menu.projectName.length > 2 ? menu.projectName : menu.gatewayName;
-                console.log('name', name)
                 return <ListItem name={name} totalAmount={menu.totalAmount} data={menu.data} />
             })
             }

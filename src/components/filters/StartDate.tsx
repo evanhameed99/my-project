@@ -9,7 +9,6 @@ const StartDateFilter: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-        console.log(date, dateString);
         dispatch(setStartDate(dateString))
     };
 

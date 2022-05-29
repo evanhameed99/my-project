@@ -5,7 +5,6 @@ import { useAppSelector, useAppDispatch } from '../../state-manager/hooks';
 const GatewayFilter = () => {
 
     const getways = useAppSelector(selectGateways);
-    console.log('the getways are', getways);
     const dispatch = useAppDispatch();
     const { Option } = Select;
     const { Item } = Form;

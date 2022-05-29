@@ -18,20 +18,14 @@ const Main: React.FC = () => {
     const [menus, setmenus] = React.useState<any[]>([]);
 
     useEffect(() => {
-        console.log('called', project)
         const result: any = _.map(report.data, (value, key) => {
             const projectFound = AllprojectsList.find(project => project.projectId === value.projectId);
             const gatewayFound = gateways.find(gateway => gateway.gatewayId === value.gatewayId);
             if (projectFound && gatewayFound) {
-                console.log('in the if')
-                console.log('project', project)
-                console.log('gateway', gateway)
                 return { ...value, projectName: projectFound.name, gatewayName: gatewayFound.name }
-
             }
         });
 
-        console.log('result', result)
         let groupedBy;
         let identifier = 'projectName';
         if (gateway === '  ' && project !== '  ') {
@@ -44,7 +38,7 @@ const Main: React.FC = () => {
         const groupedByProject = _.map(groupedBy, (value, key) => {
             return { [identifier]: key, data: value, totalAmount: _.sumBy(value, 'amount') }
         })
-        console.log('groupedByProject', groupedByProject)
+   
         setmenus(groupedByProject)
     }, [project, AllprojectsList, report, gateway])
     return (

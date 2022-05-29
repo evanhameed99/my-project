@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import '../../styles/homepage.css';
-import _ from 'lodash';
+import _, { forEach } from 'lodash';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface IGraphProp {
@@ -11,17 +11,24 @@ interface IGraphProp {
 
 
 const Graph: React.FC<IGraphProp> = ({ menus }) => {
-    console.log('menus', menus);
+
+
+    const total = _.sumBy(menus, function (o) { return o.totalAmount });
 
     const labels = menus.map((menu: any) => {
         const label = menu.projectName && menu.projectName.length > 2 ? menu.projectName : menu.gatewayName;
         return label;
     });
 
+    let menuNumber = 0;
+    forEach(menus, function (menu: any) {
+        menuNumber += menu.data.length;
+    });
+
+
     const datasets = menus.map((menu: any) => {
-        return (menu.data.length / menus.length) * 100
+        return (menu.data.length / menuNumber) * 100
     })
-    console.log('datasets', datasets);
     const data = {
         labels: labels,
         datasets: [
@@ -55,18 +62,16 @@ const Graph: React.FC<IGraphProp> = ({ menus }) => {
 
     return (
         <div className='graphWrapper'>
-            {/* <header className='graphDiv'>{labels}</header> */}
             <div className='graph'>
-                <Doughnut data={data} 
+                <Doughnut data={data}
                     options={{
-                        // maintainAspectRatio: false,
                         plugins: {
-                            legend : {
-                                labels : {
+                            legend: {
+                                labels: {
                                     usePointStyle: true,
                                     pointStyle: 'circle',
-                                    
-                            
+
+
                                 }
                             }
                         }
@@ -74,7 +79,10 @@ const Graph: React.FC<IGraphProp> = ({ menus }) => {
                 />
 
             </div>
-            <footer className='graphDiv'>total goes here</footer>
+            <footer className='graphDiv'>
+                { menus && menus.length > 0 && menus[0].projectName ? <p>GATEWAY TOTAL |  </p> : <p>PROJECT TOTAL | </p>}
+                <span style={{marginLeft : '5px'}}>{Math.round((total + Number.EPSILON) * 100) / 100}</span>
+            </footer>
         </div>
     )
 }
