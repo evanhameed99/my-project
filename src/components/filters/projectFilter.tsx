@@ -26,7 +26,7 @@ const ProjectFilter = () => {
                         projects &&
                         projects.length > 0 &&
                         projects.map(project => {
-                            return <Option value={project.projectId}>{project.name}</Option>
+                            return <Option value={project.projectId} key={project.projectId}>{project.name}</Option>
                         })
 
                     }

@@ -23,7 +23,7 @@ const GatewayFilter = () => {
                         getways &&
                         getways.length > 0 &&
                         getways.map(gateway => {
-                            return <Option value={gateway.gatewayId}>{gateway.name}</Option>
+                            return <Option value={gateway.gatewayId} key={gateway.gatewayId}>{gateway.name}</Option>
                         })
 
                     }
