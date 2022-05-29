@@ -1,0 +1,55 @@
+
+$primaryColor: #1BC5BD;
+$secondaryColor: #005B96;
+$lightBlue: #F1FAFE;
+$backgroundColor: rgb(245, 245, 245);
+$backgroundWhite: #ffffff;
+$darkLight: #e4e4e4;
+$red : rgb(132, 45, 45);
+$shadowColor : rgba(0,0,0,0.13);
+$borderWidth : 1px;
+$general-border-style: solid;
+$weight-semi-bold : 600;
+$weight-bold : 700;
+
+//Fonts
+$general-font: Arial, Helvetica, sans-serif;
+
+
+
+//Flexbox
+
+@mixin flexbox(
+  $display: flex,
+  $direction: row,
+  $placeContent: null,
+  $placeItems: null,
+  $wrap: nowrap,
+  $shrink: 0,
+  $grow: 0,
+  $alignContent: null,
+  $justifyContent: null,
+  $alignItems: null,
+  $justifyItems: null) {
+
+    display: $display;
+    flex-direction: $direction;
+
+    @if $placeContent == null {
+      @if $alignContent   { align-content: $alignContent; }
+      @if $justifyContent { justify-content: $justifyContent; }
+    } @else {
+      place-content: $placeContent;
+    }
+
+    @if $placeItems == null {
+      @if $alignItems   { align-items: $alignItems; }
+      @if $justifyItems { justify-items: $justifyItems; }
+    } @else {
+      place-items: $placeItems;
+    }
+
+    flex-wrap: $wrap;
+    flex-shrink: $shrink;
+    flex-grow: $grow;
+}
