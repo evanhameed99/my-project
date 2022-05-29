@@ -46,14 +46,14 @@ const Main: React.FC = () => {
             {
                 report && report.data && report.data.length > 0 ?
 
-                    ((project == '  ' || gateway == '  ')) ?
+                    ((project == '  ' || gateway == '  ') && !(project == '  ' && gateway == '  ') ) ?
                         <div style={{
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'start',
                         }}>
                             <List menus={menus} />
-                            <Graph menus={menus} />
+                            {report.data.length > 0 && <Graph menus={menus} />}
                         </div>
                         : <List menus={menus} />
                     : <Noreport />
