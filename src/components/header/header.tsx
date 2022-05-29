@@ -16,9 +16,9 @@ const Header: React.FC<HeaderProps> = ({collapsed , setCollapsed}) => {
     return (
         <div className='header'>
             <div className='header_logo'>
-                <img alt='app logo' src={logo} />
+                <img alt='app logo' src={logo} height={40} width={30} />
                 <button  className='collapase_btn' onClick={() => setCollapsed(!collapsed)} style={{ marginBottom: 16 }}>
-                    <img alt='app logo' src={hamburger} />
+                    <img alt='app logo' src={hamburger} height={40} width={30} />
 
                 </button>
             </div>

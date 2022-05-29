@@ -8,7 +8,7 @@ const Noreport: React.FC = () => {
             <p>Currently you have no data for the reports to be generated.
                 Once you start generating traffic through the Balance application
                 the reports will be shown.</p>
-            <img src={image} alt='no report' />
+            <img src={image} alt='no report' width={400} height={170} />
         </div>
     )
 }
