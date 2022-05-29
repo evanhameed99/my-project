@@ -5,6 +5,7 @@ import '../styles/homepage.css'
 import ListItem from '../components/menuList/ListItem';
 import List from '../components/menuList/List';
 import Main from '../components/main/Main';
+import Graph from '../components/graph/graph';
 const homepage: React.FunctionComponent<{}> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
@@ -19,6 +20,7 @@ const homepage: React.FunctionComponent<{}> = () => {
       </div>
 
       <Main />
+      {/* <Graph/> */}
 
     </div>
   )

@@ -17,7 +17,7 @@ export interface ReportState {
 
 const initialState: ReportState = {
     projectId: '  ',
-    gatewayId: '',
+    gatewayId: '  ',
     startDate: '',
     endDate: '',
     status: 'idle',

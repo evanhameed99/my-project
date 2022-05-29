@@ -19,7 +19,7 @@ const GatewayFilter = () => {
         <div>
             <Item  rules={[{ required: true}]} name='gatewayId'>
                 <Select placeholder='Select Project' style={{ width: 160 }} onChange={onFilterChange}>
-                    <Option value=' '>All Gateways</Option>
+                    <Option value='  '>All Gateways</Option>
                     {
                         getways &&
                         getways.length > 0 &&

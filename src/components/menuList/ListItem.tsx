@@ -3,17 +3,17 @@ import '../../styles/homepage.css'
 import useCollapse from 'react-collapsed';
 
 interface IListItemProp {
-    projectName: string;
+    name: string;
     totalAmount: number;
     data: any;
 }
-const ListItem: React.FC<IListItemProp> = ({ projectName, totalAmount, data }) => {
+const ListItem: React.FC<IListItemProp> = ({ name, totalAmount, data }) => {
 
     const { getCollapseProps, getToggleProps } = useCollapse();
     return (
         <div className="collapsible">
             <div className="header" {...getToggleProps()}>
-                <span>{projectName}</span>
+                <span>{name}</span>
                 <span>Total: {totalAmount}</span>
             </div>
             <div {...getCollapseProps()}>
