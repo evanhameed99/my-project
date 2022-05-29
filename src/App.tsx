@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/header/header';
 import Navigation from './components/navigation';
 import routes from './routes';
+import Footer from './components/footer/footer';
 
 const { Content } = Layout
 function App() {
@@ -33,10 +34,12 @@ function App() {
               })
 
               }
-            </Routes>
+            </Routes>     
+               <Footer/>
           </div>
 
         </div>
+
       </main>
     </BrowserRouter>
 

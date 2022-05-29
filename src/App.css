@@ -25,6 +25,10 @@
 .routes{
   margin: 0px 50px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 91vh;
 }
 
 .App-link {
